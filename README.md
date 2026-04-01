@@ -2,6 +2,8 @@
 
 An intelligent study companion that transforms questions into structured learning notes — powered by Google ADK and Gemini, deployed on Cloud Run.
 
+**Live endpoint -** `https://student-guide-315961907444.europe-west1.run.app` 
+
 ## Overview
 
 The Student Guide AI Agent is a production-ready AI system that acts as a smart tutor. Rather than returning raw answers, it teaches concepts by organizing responses into a consistent, exam-ready format -
@@ -12,8 +14,6 @@ The Student Guide AI Agent is a production-ready AI system that acts as a smart 
 | 🔑 **Key Points** | Essential facts to remember |
 | 💡 **Examples** | Real-world illustrations |
 | 📝 **Summary** | Quick revision takeaway |
-
-**Live endpoint -** `https://your-cloud-run-url` 
 
 ## Architecture
 
