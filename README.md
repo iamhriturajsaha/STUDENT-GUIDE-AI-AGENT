@@ -2,7 +2,7 @@
 
 An intelligent study companion that transforms questions into structured learning notes — powered by Google ADK and Gemini, deployed on Cloud Run.
 
-**Live endpoint -** `https://student-guide-315961907444.europe-west1.run.app` 
+**Live endpoint -** https://student-guide-315961907444.europe-west1.run.app
 
 ## Overview
 
