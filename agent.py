@@ -2,26 +2,20 @@ import os
 import logging
 import google.cloud.logging
 from dotenv import load_dotenv
-
 from google.adk import Agent
 from google.adk.agents import SequentialAgent
 from google.adk.tools.tool_context import ToolContext
 from google.adk.tools.langchain_tool import LangchainTool
-
 from langchain_community.tools import WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper
 
-# --- Setup Logging and Environment ---
-
+# Setup Logging and Environment
 cloud_logging_client = google.cloud.logging.Client()
 cloud_logging_client.setup_logging()
-
 load_dotenv()
-
 model_name = os.getenv("MODEL")
 
-# --- Custom Tools ---
-
+# Custom Tools 
 def save_student_query(
     tool_context: ToolContext, query: str
 ) -> dict[str, str]:
@@ -37,8 +31,7 @@ wikipedia_tool = LangchainTool(
     tool=WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
 )
 
-# --- Agent Definitions ---
-
+# Agent Definitions 
 # 1. Concept Explainer Agent
 concept_explainer = Agent(
     name="concept_explainer",
@@ -89,19 +82,17 @@ study_notes_formatter = Agent(
     """
 )
 
-# --- Workflow Setup ---
-
+# Workflow Setup 
 student_learning_workflow = SequentialAgent(
     name="student_learning_workflow",
     description="Handles student queries and converts them into structured learning content.",
     sub_agents=[
-        concept_explainer,        # Step 1: Explain concept
-        study_notes_formatter     # Step 2: Format into notes
+        concept_explainer,       
+        study_notes_formatter     
     ]
 )
 
-# --- Root Agent (Entry Point) ---
-
+# Root Agent
 root_agent = Agent(
     name="student_guide_greeter",
     model=model_name,
