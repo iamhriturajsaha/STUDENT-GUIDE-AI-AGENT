@@ -4,6 +4,13 @@ An intelligent study companion that transforms questions into structured learnin
 
 **Live endpoint -** https://student-guide-315961907444.europe-west1.run.app
 
+**Screenshots**
+<p align="center">
+  <img src="Screenshots/1.png" alt="1" width="1000"/><br>
+  <img src="Screenshots/2.png" alt="2" width="1000"/><br>
+  <img src="Screenshots/3.png" alt="3" width="1000"/><br>
+</p>
+
 ## Overview
 
 The Student Guide AI Agent is a production-ready AI system that acts as a smart tutor. Rather than returning raw answers, it teaches concepts by organizing responses into a consistent, exam-ready format -
