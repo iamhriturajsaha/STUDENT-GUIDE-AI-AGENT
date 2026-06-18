@@ -1,15 +1,15 @@
-# 📘Student Guide AI Agent 
+# 📘 Student Guide AI Agent
 
 ## 🚀 Project Overview
-The Student Guide AI Agent is an AI-powered educational assistant designed to help students understand complex topics in a clear, structured and exam-ready format. Unlike traditional Q&A systems, this agent focuses on teaching rather than just answering. Built using Google ADK (Agent Development Kit) and Gemini, the system processes user queries and converts them into well-organized study notes, including -
-* Definition.
-* Key Points.
-* Examples.
-* Summary.
+The **Student Guide AI Agent** is an AI-powered educational assistant that helps students understand complex topics in a clear, structured, and exam-ready format. Unlike traditional Q&A systems, this agent focuses on **teaching rather than just answering**.
 
-The agent is deployed as a scalable HTTP API on Google Cloud Run, making it easy to integrate into web apps, mobile apps or learning platforms.
+Built using **Google ADK** and **Groq (Llama 3.3 70B)**, the system processes user queries and converts them into well-organized study notes:
+- 📌 Definition
+- 🔑 Key Points
+- 💡 Examples
+- 📝 Summary
 
-📄 Google Cloud Run Link - https://student-guide-315961907444.europe-west1.run.app
+🌐 **Live Demo** → [student-guide-ai-agent.onrender.com](https://student-guide-ai-agent.onrender.com)
 
 ## Quick Glance
 <p align="center">
@@ -21,139 +21,110 @@ The agent is deployed as a scalable HTTP API on Google Cloud Run, making it easy
 </p>
 
 ## 🎯 Problem Statement
-Build and deploy a single AI agent that -
-* Uses ADK and Gemini.
-* Performs one clearly defined task.
-* Is deployed on Google Cloud Run.
-* Exposes functionality via an HTTP API.
+Build and deploy a single AI agent that:
+- Uses Google ADK framework
+- Performs one clearly defined task (structured learning)
+- Is deployed and accessible via a public URL
+- Exposes functionality via an HTTP API
 
-## 💡 Solution Idea
-The Student Guide Agent acts as a smart, always-available tutor + note-maker.
+## 💡 Solution
+The Student Guide Agent acts as a smart, always-available **tutor + note-maker**.
 
-### Key Concept -
-Instead of returning long, unstructured answers, the agent -
-1. Understands the student's query.
-2. Fetches accurate information (via Gemini + optional Wikipedia API).
-3. Converts it into clean, structured study notes.
-
-### Example Query -
+### Example Query
 > "What is Machine Learning?"
 
-### Output Format -
-* Definition.
-* Key Points.
-* Examples.
-* Summary.
-
-This approach improves -
-* Retention.
-* Revision efficiency.
-* Concept clarity.
-
-## 🧠 Core Capabilities
-* Converts natural language queries → structured study notes.
-* Provides clear, concise and educational explanations.
-* Maintains consistent formatting across all outputs.
-* Supports external knowledge retrieval (Wikipedia).
+### Output Format
+- **Definition** — Clear explanation of the concept
+- **Key Points** — Bullet-point breakdown
+- **Examples** — Real-world applications
+- **Summary** — Quick revision paragraph
 
 ## 🏗️ System Architecture
-### 🔄 Workflow 
-1. **User Input**
-   * Student asks a question.
 
-2. **Query Analysis**
-   * Agent interprets intent using Gemini.
-
-3. **Processing**
-   * Retrieves knowledge (Gemini + optional APIs).
-
-4. **Response Generation**
-   * Formats output into structured notes -
-     * Definition.
-     * Key Points.
-     * Examples.
-     * Summary.
-
-5. **Output Delivery**
-   * Returned via HTTP API (Cloud Run).
+```
+User Message
+     ↓
+Root Agent (Greeter)        ← Welcomes student, saves query
+     ↓
+Concept Explainer Agent     ← Explains the topic using LLM knowledge
+     ↓
+Study Notes Formatter       ← Formats into structured study notes
+     ↓
+Final Response
+```
 
 ## ⚙️ Tech Stack
-| Component          | Technology           |
-| ------------------ | -------------------- |
-| Agent Framework    | Google ADK           |
-| AI Model           | Gemini               |
-| Backend Language   | Python               |
-| Deployment         | Google Cloud Run     |
-| API Interface      | HTTP REST API        |
-| External Knowledge | Wikipedia API        |
-| Logging            | Google Cloud Logging |
-| Containerization   | Docker               |
+
+| Component       | Technology                  |
+| --------------- | --------------------------- |
+| Agent Framework | Google ADK                  |
+| AI Model        | Llama 3.3 70B (via Groq)    |
+| Backend         | Python 3.11                 |
+| Deployment      | Render.com                  |
+| Containerization| Docker                      |
+| API Interface   | HTTP / SSE (ADK Web Server) |
 
 ## 📦 Features
-* ✅ Accepts natural language queries.
-* ✅ Generates structured study notes.
-* ✅ Uses Gemini for intelligent reasoning.
-* ✅ Provides clear concept explanations.
-* ✅ Ensures consistent output format.
-* ✅ Fast and concise responses.
-* ✅ Deployable as an HTTP API.
-* ✅ Modular ADK-based architecture.
-* ✅ Supports external knowledge lookup.
+- ✅ Accepts natural language queries
+- ✅ Generates structured study notes
+- ✅ Uses Llama 3.3 70B for intelligent reasoning
+- ✅ Provides clear concept explanations
+- ✅ Consistent output format every time
+- ✅ Fast responses (Groq inference)
+- ✅ Modular ADK multi-agent architecture
+- ✅ Publicly deployed via Render
 
-## 🌟 Unique Value Proposition (USP)
-### 🔹 Differentiation
-* Not just a chatbot → educational assistant.
-* Focus on learning clarity, not raw answers.
+## 🚀 Local Setup
 
-### 🔹 Problem Solving
-* Simplifies complex topics.
-* Saves time by combining -
-  * Explanation + Notes.
+### Prerequisites
+- Python 3.11+
+- [Groq API Key](https://console.groq.com/keys) (free)
 
-### 🔹 Core Advantage
-* Combines -
-  * Personal tutor.
-  * Automated note generator.
+### Install & Run
+```bash
+# Clone the repo
+git clone https://github.com/iamhriturajsaha/STUDENT-GUIDE-AI-AGENT.git
+cd STUDENT-GUIDE-AI-AGENT
 
-## 📊 Example Output Structure
-```json
-{
-  "definition": "Machine Learning is a subset of AI...",
-  "key_points": [
-    "Learns from data",
-    "Improves over time",
-    "Uses algorithms"
-  ],
-  "examples": [
-    "Netflix recommendations",
-    "Spam email filtering"
-  ],
-  "summary": "ML enables systems to learn patterns and make predictions..."
-}
+# Install dependencies
+pip install -r requirements.txt
+
+# Set environment variables
+export GROQ_API_KEY=your_groq_api_key
+export MODEL=llama-3.3-70b-versatile
+
+# Run the ADK web server
+adk web
 ```
-## 🚀 Deployment Details
-* Hosted on Google Cloud Run.
-* Containerized using Docker.
-* Exposed via HTTP API endpoint.
+
+Then open: `http://localhost:8080`
+
+## 🌍 Deployment (Render.com)
+
+1. Fork this repo
+2. Create a new **Web Service** on [Render](https://render.com)
+3. Connect your GitHub repo — Render auto-detects the `Dockerfile`
+4. Add environment variables:
+   - `GROQ_API_KEY` = your key from [console.groq.com](https://console.groq.com/keys)
+   - `MODEL` = `llama-3.3-70b-versatile`
+5. Click **Deploy** ✅
 
 ## 🔮 Future Enhancements
-* 🎯 Adaptive learning based on student level.
-* 📝 Quiz generation for practice.
-* 📊 Progress tracking system.
-* 🧩 Multi-agent expansion (planner + tutor + evaluator).
-* 🎙️ Voice-based interaction.
+- 🎯 Adaptive learning based on student level
+- 📝 Quiz generation for practice
+- 📊 Progress tracking system
+- 🧩 Multi-agent expansion (planner + tutor + evaluator)
+- 🎙️ Voice-based interaction
 
 ## 📌 Build Criteria Alignment
+
 | Requirement       | Status |
 | ----------------- | ------ |
 | ADK Used          | ✅      |
-| Gemini Used       | ✅      |
+| LLM Integration   | ✅      |
 | Single Task Agent | ✅      |
 | HTTP Input/Output | ✅      |
 | Cloud Deployment  | ✅      |
 
 ## 📢 Conclusion
-The Student Guide AI Agent is a lightweight yet powerful AI system that transforms how students learn by delivering structured, easy-to-understand and exam-ready content.
-It bridges the gap between -
-* ❌ Raw AI answers. 
-* ✅ Structured learning .
+The Student Guide AI Agent is a lightweight yet powerful AI system that transforms how students learn by delivering structured, easy-to-understand, and exam-ready content.
