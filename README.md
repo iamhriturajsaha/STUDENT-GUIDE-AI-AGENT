@@ -1,4 +1,4 @@
-# 📘 Student Guide AI Agent
+# 📘Student Guide AI Agent
 
 ## 🚀 Project Overview
 The **Student Guide AI Agent** is an AI-powered educational assistant that helps students understand complex topics in a clear, structured and exam-ready format. Unlike traditional Q&A systems, this agent focuses on teaching rather than just answering.
@@ -28,7 +28,7 @@ Build and deploy a single AI agent that -
 - Exposes functionality via an HTTP API.
 
 ## 💡 Solution
-The Student Guide Agent acts as a smart, always-available **tutor + note-maker**.
+The Student Guide Agent acts as a smart, always-available tutor + note-maker.
 
 ### Example Query
 > "What is Machine Learning?"
