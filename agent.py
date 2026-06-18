@@ -5,9 +5,6 @@ from google.adk import Agent
 from google.adk.agents import SequentialAgent
 from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.tool_context import ToolContext
-from google.adk.tools.langchain_tool import LangchainTool
-from langchain_community.tools import WikipediaQueryRun
-from langchain_community.utilities import WikipediaAPIWrapper
 
 # Setup Logging and Environment
 logging.basicConfig(
@@ -18,7 +15,6 @@ load_dotenv()
 
 # Use Groq via LiteLLM (free tier: 14,400 req/day)
 GROQ_MODEL = LiteLlm(model=f"groq/{os.getenv('MODEL', 'llama-3.3-70b-versatile')}")
-model_name = os.getenv("MODEL")
 
 # Custom Tools
 def save_student_query(
@@ -31,32 +27,23 @@ def save_student_query(
     logging.info(f"[State updated] STUDENT_QUERY: {query}")
     return {"status": "saved"}
 
-# Wikipedia tool for academic explanations
-wikipedia_tool = LangchainTool(
-    tool=WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
-)
-
 # Agent Definitions
 # 1. Concept Explainer Agent
 concept_explainer = Agent(
     name="concept_explainer",
     model=GROQ_MODEL,
-    description="Explains academic concepts using external knowledge sources.",
+    description="Explains academic concepts clearly using built-in knowledge.",
     instruction="""
-    You are an expert teacher and academic guide.
-    Your goal is to explain the STUDENT_QUERY clearly and thoroughly.
-    You have access to:
-    - Wikipedia tool for general knowledge and definitions.
+    You are an expert teacher and academic guide with deep knowledge across all subjects.
+    Your goal is to explain the STUDENT_QUERY clearly and thoroughly using your knowledge.
     Steps:
     1. Understand the STUDENT_QUERY.
-    2. If needed, use Wikipedia to gather accurate information.
-    3. Break the concept into simple explanations.
-    4. Provide examples where possible.
-    5. Keep the explanation student-friendly.
+    2. Break the concept into simple, clear explanations.
+    3. Provide real-world examples where possible.
+    4. Keep the explanation student-friendly and engaging.
     STUDENT_QUERY:
     { STUDENT_QUERY }
     """,
-    tools=[wikipedia_tool],
     output_key="concept_data"
 )
 
@@ -84,8 +71,8 @@ student_learning_workflow = SequentialAgent(
     name="student_learning_workflow",
     description="Handles student queries and converts them into structured learning content.",
     sub_agents=[
-        concept_explainer,       
-        study_notes_formatter     
+        concept_explainer,
+        study_notes_formatter
     ]
 )
 
