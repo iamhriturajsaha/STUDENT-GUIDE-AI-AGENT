@@ -99,7 +99,7 @@ adk web
 2. Create a new Web Service on [Render](https://render.com).
 3. Connect your GitHub repo — Render auto-detects the `Dockerfile`.
 4. Add environment variables - 
-   - `GROQ_API_KEY` = your key from [console.groq.com](https://console.groq.com/keys).
+   - `GROQ_API_KEY` = your key from [Groq](https://console.groq.com/keys).
    - `MODEL` = `llama-3.3-70b-versatile`.
 5. Click Deploy.
 
