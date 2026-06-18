@@ -1,15 +1,15 @@
 # 📘 Student Guide AI Agent
 
 ## 🚀 Project Overview
-The **Student Guide AI Agent** is an AI-powered educational assistant that helps students understand complex topics in a clear, structured, and exam-ready format. Unlike traditional Q&A systems, this agent focuses on **teaching rather than just answering**.
+The **Student Guide AI Agent** is an AI-powered educational assistant that helps students understand complex topics in a clear, structured and exam-ready format. Unlike traditional Q&A systems, this agent focuses on teaching rather than just answering.
 
-Built using **Google ADK** and **Groq (Llama 3.3 70B)**, the system processes user queries and converts them into well-organized study notes:
-- 📌 Definition
-- 🔑 Key Points
-- 💡 Examples
-- 📝 Summary
+Built using **Google ADK** and **Groq (Llama 3.3 70B)**, the system processes user queries and converts them into well-organized study notes -
+- 📌 Definition.
+- 🔑 Key Points.
+- 💡 Examples.
+- 📝 Summary.
 
-🌐 **Live Demo** → [student-guide-ai-agent.onrender.com](https://student-guide-ai-agent.onrender.com)
+🌐 **Live Demo** → https://student-guide-ai-agent.onrender.com
 
 ## Quick Glance
 <p align="center">
@@ -21,11 +21,11 @@ Built using **Google ADK** and **Groq (Llama 3.3 70B)**, the system processes us
 </p>
 
 ## 🎯 Problem Statement
-Build and deploy a single AI agent that:
-- Uses Google ADK framework
-- Performs one clearly defined task (structured learning)
-- Is deployed and accessible via a public URL
-- Exposes functionality via an HTTP API
+Build and deploy a single AI agent that -
+- Uses Google ADK framework.
+- Performs one clearly defined task (structured learning).
+- Is deployed and accessible via a public URL.
+- Exposes functionality via an HTTP API.
 
 ## 💡 Solution
 The Student Guide Agent acts as a smart, always-available **tutor + note-maker**.
@@ -34,13 +34,12 @@ The Student Guide Agent acts as a smart, always-available **tutor + note-maker**
 > "What is Machine Learning?"
 
 ### Output Format
-- **Definition** — Clear explanation of the concept
-- **Key Points** — Bullet-point breakdown
-- **Examples** — Real-world applications
-- **Summary** — Quick revision paragraph
+- **Definition** — Clear explanation of the concept.
+- **Key Points** — Bullet-point breakdown.
+- **Examples** — Real-world applications.
+- **Summary** — Quick revision paragraph.
 
 ## 🏗️ System Architecture
-
 ```
 User Message
      ↓
@@ -54,7 +53,6 @@ Final Response
 ```
 
 ## ⚙️ Tech Stack
-
 | Component       | Technology                  |
 | --------------- | --------------------------- |
 | Agent Framework | Google ADK                  |
@@ -65,17 +63,16 @@ Final Response
 | API Interface   | HTTP / SSE (ADK Web Server) |
 
 ## 📦 Features
-- ✅ Accepts natural language queries
-- ✅ Generates structured study notes
-- ✅ Uses Llama 3.3 70B for intelligent reasoning
-- ✅ Provides clear concept explanations
-- ✅ Consistent output format every time
-- ✅ Fast responses (Groq inference)
-- ✅ Modular ADK multi-agent architecture
-- ✅ Publicly deployed via Render
+- ✅ Accepts natural language queries.
+- ✅ Generates structured study notes.
+- ✅ Uses Llama 3.3 70B for intelligent reasoning.
+- ✅ Provides clear concept explanations.
+- ✅ Consistent output format every time.
+- ✅ Fast responses (Groq inference).
+- ✅ Modular ADK multi-agent architecture.
+- ✅ Publicly deployed via Render.
 
 ## 🚀 Local Setup
-
 ### Prerequisites
 - Python 3.11+
 - [Groq API Key](https://console.groq.com/keys) (free)
@@ -97,34 +94,30 @@ export MODEL=llama-3.3-70b-versatile
 adk web
 ```
 
-Then open: `http://localhost:8080`
-
 ## 🌍 Deployment (Render.com)
-
-1. Fork this repo
-2. Create a new **Web Service** on [Render](https://render.com)
-3. Connect your GitHub repo — Render auto-detects the `Dockerfile`
-4. Add environment variables:
-   - `GROQ_API_KEY` = your key from [console.groq.com](https://console.groq.com/keys)
-   - `MODEL` = `llama-3.3-70b-versatile`
-5. Click **Deploy** ✅
+1. Fork this repo.
+2. Create a new Web Service on [Render](https://render.com).
+3. Connect your GitHub repo — Render auto-detects the `Dockerfile`.
+4. Add environment variables - 
+   - `GROQ_API_KEY` = your key from [console.groq.com](https://console.groq.com/keys).
+   - `MODEL` = `llama-3.3-70b-versatile`.
+5. Click Deploy.
 
 ## 🔮 Future Enhancements
-- 🎯 Adaptive learning based on student level
-- 📝 Quiz generation for practice
-- 📊 Progress tracking system
-- 🧩 Multi-agent expansion (planner + tutor + evaluator)
-- 🎙️ Voice-based interaction
+- 🎯 Adaptive learning based on student level.
+- 📝 Quiz generation for practice.
+- 📊 Progress tracking system.
+- 🧩 Multi-agent expansion (planner + tutor + evaluator).
+- 🎙️ Voice-based interaction.
 
 ## 📌 Build Criteria Alignment
-
 | Requirement       | Status |
 | ----------------- | ------ |
-| ADK Used          | ✅      |
-| LLM Integration   | ✅      |
-| Single Task Agent | ✅      |
-| HTTP Input/Output | ✅      |
-| Cloud Deployment  | ✅      |
+| ADK Used          | ✅     |
+| LLM Integration   | ✅     |
+| Single Task Agent | ✅     |
+| HTTP Input/Output | ✅     |
+| Cloud Deployment  | ✅     |
 
 ## 📢 Conclusion
-The Student Guide AI Agent is a lightweight yet powerful AI system that transforms how students learn by delivering structured, easy-to-understand, and exam-ready content.
+The Student Guide AI Agent is a lightweight yet powerful AI system that transforms how students learn by delivering structured, easy-to-understand and exam-ready content.
