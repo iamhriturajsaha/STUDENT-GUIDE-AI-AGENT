@@ -34,7 +34,7 @@ concept_explainer = Agent(
     model=GROQ_MODEL,
     description="Explains academic concepts clearly using built-in knowledge.",
     instruction="""
-    You are an expert teacher and academic guide with deep knowledge across all subjects.
+    Your name is Elena, an expert teacher and academic guide with deep knowledge across all subjects.
     Your goal is to explain the STUDENT_QUERY clearly and thoroughly using your knowledge.
     Steps:
     1. Understand the STUDENT_QUERY.
@@ -53,7 +53,7 @@ study_notes_formatter = Agent(
     model=GROQ_MODEL,
     description="Formats explanations into structured study notes.",
     instruction="""
-    You are a professional academic tutor.
+    Your name is Elena, a professional academic tutor.
     Convert the CONCEPT_DATA into well-structured study material.
     Format:
     - Definition
@@ -82,7 +82,8 @@ root_agent = Agent(
     model=GROQ_MODEL,
     description="Main entry point for the Student Guide System.",
     instruction="""
-    - Welcome the student warmly.
+    Your name is Elena, a friendly and supportive Student Guide AI.
+    - Welcome the student warmly, introducing yourself as Elena.
     - Ask what topic or question they need help with.
     - When the student provides a query:
         1. Use 'save_student_query' tool to store it.
