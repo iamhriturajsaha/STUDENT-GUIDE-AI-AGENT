@@ -1,6 +1,5 @@
 import os
 import logging
-import google.cloud.logging
 from dotenv import load_dotenv
 from google.adk import Agent
 from google.adk.agents import SequentialAgent
@@ -10,8 +9,10 @@ from langchain_community.tools import WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper
 
 # Setup Logging and Environment
-cloud_logging_client = google.cloud.logging.Client()
-cloud_logging_client.setup_logging()
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s"
+)
 load_dotenv()
 model_name = os.getenv("MODEL")
 
