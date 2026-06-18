@@ -3,6 +3,7 @@ import logging
 from dotenv import load_dotenv
 from google.adk import Agent
 from google.adk.agents import SequentialAgent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.tool_context import ToolContext
 from google.adk.tools.langchain_tool import LangchainTool
 from langchain_community.tools import WikipediaQueryRun
@@ -14,6 +15,9 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s"
 )
 load_dotenv()
+
+# Use Groq via LiteLLM (free tier: 14,400 req/day)
+GROQ_MODEL = LiteLlm(model=f"groq/{os.getenv('MODEL', 'llama-3.3-70b-versatile')}")
 model_name = os.getenv("MODEL")
 
 # Custom Tools
@@ -36,7 +40,7 @@ wikipedia_tool = LangchainTool(
 # 1. Concept Explainer Agent
 concept_explainer = Agent(
     name="concept_explainer",
-    model=model_name,
+    model=GROQ_MODEL,
     description="Explains academic concepts using external knowledge sources.",
     instruction="""
     You are an expert teacher and academic guide.
@@ -59,7 +63,7 @@ concept_explainer = Agent(
 # 2. Study Notes Formatter Agent
 study_notes_formatter = Agent(
     name="study_notes_formatter",
-    model=model_name,
+    model=GROQ_MODEL,
     description="Formats explanations into structured study notes.",
     instruction="""
     You are a professional academic tutor.
@@ -88,7 +92,7 @@ student_learning_workflow = SequentialAgent(
 # Root Agent
 root_agent = Agent(
     name="student_guide_greeter",
-    model=model_name,
+    model=GROQ_MODEL,
     description="Main entry point for the Student Guide System.",
     instruction="""
     - Welcome the student warmly.
