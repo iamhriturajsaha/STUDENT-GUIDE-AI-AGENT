@@ -56,7 +56,7 @@ Final Response
 | Component       | Technology                  |
 | --------------- | --------------------------- |
 | Agent Framework | Google ADK                  |
-| AI Model        | Gemini 2.5 Flash            |
+| AI Model        | OpenAI GPT-4o-mini          |
 | Backend         | Python 3.11                 |
 | Deployment      | Render.com                  |
 | Containerization| Docker                      |
@@ -65,10 +65,10 @@ Final Response
 ## 📦 Features
 - ✅ Accepts natural language queries.
 - ✅ Generates structured study notes.
-- ✅ Uses Gemini 2.5 Flash for intelligent reasoning.
+- ✅ Uses OpenAI GPT-4o-mini for intelligent reasoning.
 - ✅ Provides clear concept explanations.
 - ✅ Consistent output format every time.
-- ✅ Fast responses (Gemini inference).
+- ✅ Fast responses (OpenAI inference).
 - ✅ Modular ADK multi-agent architecture.
 - ✅ Publicly deployed via Render.
 
