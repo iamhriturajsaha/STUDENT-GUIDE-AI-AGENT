@@ -14,7 +14,7 @@ logging.basicConfig(
 load_dotenv()
 
 # Use Groq via LiteLLM (free tier: 14,400 req/day)
-GROQ_MODEL = LiteLlm(model=f"groq/{os.getenv('MODEL', 'llama-3.3-70b-versatile')}")
+GROQ_MODEL = LiteLlm(model=f"groq/{os.getenv('MODEL', 'llama-3.1-70b-versatile')}")
 
 # Custom Tools
 def save_student_query(
