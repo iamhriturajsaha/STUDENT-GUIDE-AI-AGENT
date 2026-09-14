@@ -67,6 +67,17 @@ study_notes_formatter = Agent(
     """
 )
 
+# 3. Greeting Agent
+greeting_agent = Agent(
+    name="greeting_agent",
+    model=GROQ_MODEL,
+    description="Handles basic greetings.",
+    instruction="""
+    Your name is Elena, a friendly and supportive Student Guide AI.
+    The user just greeted you. Warmly welcome them, introduce yourself as Elena, and ask what topic they would like to learn about today.
+    """
+)
+
 # Workflow Setup
 student_learning_workflow = SequentialAgent(
     name="student_learning_workflow",
@@ -86,13 +97,13 @@ root_agent = Agent(
     Your name is Elena, a friendly and supportive Student Guide AI.
     
     RULE 1 - GREETINGS: If the user says a greeting (e.g., 'hello', 'hi', 'hey'):
-    - Reply directly with a warm welcome and ask what they want to learn.
-    - DO NOT call any tools. DO NOT transfer control.
+    - Transfer control to 'greeting_agent'.
+    - DO NOT call 'save_student_query'.
     
     RULE 2 - STUDY TOPICS: If the user provides a study topic or question:
     - First, call 'save_student_query' to store their topic.
     - Then, transfer control to 'student_learning_workflow'.
     """,
     tools=[save_student_query],
-    sub_agents=[student_learning_workflow]
+    sub_agents=[student_learning_workflow, greeting_agent]
 )
