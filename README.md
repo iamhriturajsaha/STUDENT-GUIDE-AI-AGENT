@@ -94,15 +94,6 @@ export MODEL=gpt-4o-mini
 adk web
 ```
 
-## 🌍 Deployment (Render.com)
-1. Fork this repo.
-2. Create a new Web Service on [Render](https://render.com).
-3. Connect your GitHub repo — Render auto-detects the `Dockerfile`.
-4. Add environment variables - 
-   - `OPENAI_API_KEY` = your key from [OpenAI platform](https://platform.openai.com/api-keys).
-   - `MODEL` = `gpt-4o-mini`.
-5. Click Deploy.
-
 ## 🔮 Future Enhancements
 - 🎯 Adaptive learning based on student level.
 - 📝 Quiz generation for practice.
