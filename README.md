@@ -1,15 +1,15 @@
 # 📘Student Guide AI Agent
 
 ## 🚀 Project Overview
-The **Student Guide AI Agent** is an AI-powered educational assistant that helps students understand complex topics in a clear, structured and exam-ready format. Unlike traditional Q&A systems, this agent focuses on teaching rather than just answering.
+The Student Guide AI Agent is an AI-powered educational assistant that helps students understand complex topics in a clear, structured and exam-ready format. Unlike traditional Q&A systems, this agent focuses on teaching rather than just answering.
 
-Built using **Google ADK** and **Groq (Llama 3.3 70B)**, the system processes user queries and converts them into well-organized study notes -
+Built using Google ADK and Gemini 2.5 Flash, the system processes user queries and converts them into well-organized study notes -
 - 📌 Definition.
 - 🔑 Key Points.
 - 💡 Examples.
 - 📝 Summary.
 
-🌐 **Live Demo** → https://student-guide-ai-agent.onrender.com
+🌐 **Live Demo** → https://student-guide-ai-agent-mj6n.onrender.com
 
 ## Quick Glance
 <p align="center">
@@ -43,7 +43,7 @@ The Student Guide Agent acts as a smart, always-available tutor + note-maker.
 ```
 User Message
      ↓
-Root Agent (Greeter)        ← Welcomes student, saves query
+Root Agent (Greeter)        ← Welcomes student, routes query
      ↓
 Concept Explainer Agent     ← Explains the topic using LLM knowledge
      ↓
@@ -56,7 +56,7 @@ Final Response
 | Component       | Technology                  |
 | --------------- | --------------------------- |
 | Agent Framework | Google ADK                  |
-| AI Model        | Llama 3.3 70B (via Groq)    |
+| AI Model        | Gemini 2.5 Flash            |
 | Backend         | Python 3.11                 |
 | Deployment      | Render.com                  |
 | Containerization| Docker                      |
@@ -65,17 +65,17 @@ Final Response
 ## 📦 Features
 - ✅ Accepts natural language queries.
 - ✅ Generates structured study notes.
-- ✅ Uses Llama 3.3 70B for intelligent reasoning.
+- ✅ Uses Gemini 2.5 Flash for intelligent reasoning.
 - ✅ Provides clear concept explanations.
 - ✅ Consistent output format every time.
-- ✅ Fast responses (Groq inference).
+- ✅ Fast responses (Gemini inference).
 - ✅ Modular ADK multi-agent architecture.
 - ✅ Publicly deployed via Render.
 
 ## 🚀 Local Setup
 ### Prerequisites
 - Python 3.11+
-- [Groq API Key](https://console.groq.com/keys) (free)
+- [Gemini API Key](https://aistudio.google.com/app/apikey) (free)
 
 ### Install & Run
 ```bash
@@ -87,21 +87,12 @@ cd STUDENT-GUIDE-AI-AGENT
 pip install -r requirements.txt
 
 # Set environment variables
-export GROQ_API_KEY=your_groq_api_key
-export MODEL=llama-3.3-70b-versatile
+export GEMINI_API_KEY=your_gemini_api_key
+export MODEL=gemini-2.5-flash
 
 # Run the ADK web server
 adk web
 ```
-
-## 🌍 Deployment (Render.com)
-1. Fork this repo.
-2. Create a new Web Service on [Render](https://render.com).
-3. Connect your GitHub repo — Render auto-detects the `Dockerfile`.
-4. Add environment variables - 
-   - `GROQ_API_KEY` = your key from [Groq](https://console.groq.com/keys).
-   - `MODEL` = `llama-3.3-70b-versatile`.
-5. Click Deploy.
 
 ## 🔮 Future Enhancements
 - 🎯 Adaptive learning based on student level.
@@ -109,15 +100,6 @@ adk web
 - 📊 Progress tracking system.
 - 🧩 Multi-agent expansion (planner + tutor + evaluator).
 - 🎙️ Voice-based interaction.
-
-## 📌 Build Criteria Alignment
-| Requirement       | Status |
-| ----------------- | ------ |
-| ADK Used          | ✅     |
-| LLM Integration   | ✅     |
-| Single Task Agent | ✅     |
-| HTTP Input/Output | ✅     |
-| Cloud Deployment  | ✅     |
 
 ## 📢 Conclusion
 The Student Guide AI Agent is a lightweight yet powerful AI system that transforms how students learn by delivering structured, easy-to-understand and exam-ready content.
