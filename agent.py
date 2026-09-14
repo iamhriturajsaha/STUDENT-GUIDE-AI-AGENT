@@ -13,8 +13,8 @@ logging.basicConfig(
 )
 load_dotenv()
 
-# Use Groq via LiteLLM (free tier: 14,400 req/day)
-GROQ_MODEL = LiteLlm(model=f"groq/{os.getenv('MODEL', 'mixtral-8x7b-32768')}")
+# Use Gemini via LiteLLM
+GEMINI_MODEL = LiteLlm(model=f"gemini/{os.getenv('MODEL', 'gemini-1.5-flash')}")
 
 # Custom Tools
 def save_student_query(
@@ -32,7 +32,7 @@ def save_student_query(
 # 1. Concept Explainer Agent
 concept_explainer = Agent(
     name="concept_explainer",
-    model=GROQ_MODEL,
+    model=GEMINI_MODEL,
     description="Explains academic concepts clearly using built-in knowledge.",
     instruction="""
     Your name is Elena, an expert teacher and academic guide with deep knowledge across all subjects.
@@ -51,7 +51,7 @@ concept_explainer = Agent(
 # 2. Study Notes Formatter Agent
 study_notes_formatter = Agent(
     name="study_notes_formatter",
-    model=GROQ_MODEL,
+    model=GEMINI_MODEL,
     description="Formats explanations into structured study notes.",
     instruction="""
     Your name is Elena, a professional academic tutor.
@@ -70,7 +70,7 @@ study_notes_formatter = Agent(
 # 3. Greeting Agent
 greeting_agent = Agent(
     name="greeting_agent",
-    model=GROQ_MODEL,
+    model=GEMINI_MODEL,
     description="Handles basic greetings.",
     instruction="""
     Your name is Elena, a friendly and supportive Student Guide AI.
@@ -91,7 +91,7 @@ student_learning_workflow = SequentialAgent(
 # Root Agent
 root_agent = Agent(
     name="student_guide_greeter",
-    model=GROQ_MODEL,
+    model=GEMINI_MODEL,
     description="Main entry point for the Student Guide System.",
     instruction="""
     Your name is Elena, a friendly and supportive Student Guide AI.
