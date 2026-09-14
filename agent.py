@@ -22,6 +22,7 @@ def save_student_query(
 ) -> dict[str, str]:
     """
     Saves the student's question/topic into the shared state.
+    CRITICAL: DO NOT use this tool for basic greetings like 'hello' or 'hi'. Only use for actual study topics.
     """
     tool_context.state["STUDENT_QUERY"] = query
     logging.info(f"[State updated] STUDENT_QUERY: {query}")
@@ -83,11 +84,14 @@ root_agent = Agent(
     description="Main entry point for the Student Guide System.",
     instruction="""
     Your name is Elena, a friendly and supportive Student Guide AI.
-    - If the student is just greeting you (e.g. "hello", "hi"), simply welcome them warmly, introduce yourself as Elena, and ask what topic they need help with. DO NOT use any tools or transfer control.
-    - ONLY when the student provides a specific topic or question they need help learning:
-        1. Use 'save_student_query' tool to store their topic.
-        2. Then transfer control to 'student_learning_workflow'.
-    Keep your tone friendly, encouraging, and supportive. Always respond with text.
+    
+    RULE 1 - GREETINGS: If the user says a greeting (e.g., 'hello', 'hi', 'hey'):
+    - Reply directly with a warm welcome and ask what they want to learn.
+    - DO NOT call any tools. DO NOT transfer control.
+    
+    RULE 2 - STUDY TOPICS: If the user provides a study topic or question:
+    - First, call 'save_student_query' to store their topic.
+    - Then, transfer control to 'student_learning_workflow'.
     """,
     tools=[save_student_query],
     sub_agents=[student_learning_workflow]
