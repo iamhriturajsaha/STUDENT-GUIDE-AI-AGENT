@@ -14,7 +14,7 @@ logging.basicConfig(
 load_dotenv()
 
 # Use Gemini via LiteLLM
-GEMINI_MODEL = LiteLlm(model=f"gemini/{os.getenv('MODEL', 'gemini-1.5-flash')}")
+GEMINI_MODEL = LiteLlm(model=f"gemini/{os.getenv('MODEL', 'gemini-pro')}")
 
 # Custom Tools
 def save_student_query(
