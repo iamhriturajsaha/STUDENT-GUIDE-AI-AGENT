@@ -3,7 +3,7 @@
 ## 🚀 Project Overview
 The Student Guide AI Agent is an AI-powered educational assistant that helps students understand complex topics in a clear, structured and exam-ready format. Unlike traditional Q&A systems, this agent focuses on teaching rather than just answering.
 
-Built using Google ADK and Gemini 2.5 Flash, the system processes user queries and converts them into well-organized study notes -
+Built using **Google ADK** and **OpenAI GPT-4o-mini**, the system processes user queries and converts them into well-organized study notes -
 - 📌 Definition.
 - 🔑 Key Points.
 - 💡 Examples.
@@ -75,7 +75,7 @@ Final Response
 ## 🚀 Local Setup
 ### Prerequisites
 - Python 3.11+
-- [Gemini API Key](https://aistudio.google.com/app/apikey) (free)
+- [OpenAI API Key](https://platform.openai.com/api-keys) (requires account)
 
 ### Install & Run
 ```bash
@@ -87,12 +87,21 @@ cd STUDENT-GUIDE-AI-AGENT
 pip install -r requirements.txt
 
 # Set environment variables
-export GEMINI_API_KEY=your_gemini_api_key
-export MODEL=gemini-2.5-flash
+export OPENAI_API_KEY=your_openai_api_key
+export MODEL=gpt-4o-mini
 
 # Run the ADK web server
 adk web
 ```
+
+## 🌍 Deployment (Render.com)
+1. Fork this repo.
+2. Create a new Web Service on [Render](https://render.com).
+3. Connect your GitHub repo — Render auto-detects the `Dockerfile`.
+4. Add environment variables - 
+   - `OPENAI_API_KEY` = your key from [OpenAI platform](https://platform.openai.com/api-keys).
+   - `MODEL` = `gpt-4o-mini`.
+5. Click Deploy.
 
 ## 🔮 Future Enhancements
 - 🎯 Adaptive learning based on student level.

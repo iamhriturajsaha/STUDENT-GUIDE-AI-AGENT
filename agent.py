@@ -13,8 +13,8 @@ logging.basicConfig(
 )
 load_dotenv()
 
-# Use Gemini via LiteLLM
-GEMINI_MODEL = LiteLlm(model=f"gemini/{os.getenv('MODEL', 'gemini-2.5-flash')}")
+# Use OpenAI via LiteLLM
+OPENAI_MODEL = LiteLlm(model=os.getenv('MODEL', 'gpt-4o-mini'))
 
 # No custom tools needed; relying on conversation history.
 
@@ -22,7 +22,7 @@ GEMINI_MODEL = LiteLlm(model=f"gemini/{os.getenv('MODEL', 'gemini-2.5-flash')}")
 # 1. Concept Explainer Agent
 concept_explainer = Agent(
     name="concept_explainer",
-    model=GEMINI_MODEL,
+    model=OPENAI_MODEL,
     description="Explains academic concepts clearly using built-in knowledge.",
     instruction="""
     Your name is Elena, an expert teacher and academic guide with deep knowledge across all subjects.
@@ -39,7 +39,7 @@ concept_explainer = Agent(
 # 2. Study Notes Formatter Agent
 study_notes_formatter = Agent(
     name="study_notes_formatter",
-    model=GEMINI_MODEL,
+    model=OPENAI_MODEL,
     description="Formats explanations into structured study notes.",
     instruction="""
     Your name is Elena, a professional academic tutor.
@@ -58,7 +58,7 @@ study_notes_formatter = Agent(
 # 3. Greeting Agent
 greeting_agent = Agent(
     name="greeting_agent",
-    model=GEMINI_MODEL,
+    model=OPENAI_MODEL,
     description="Handles basic greetings.",
     instruction="""
     Your name is Elena, a friendly and supportive Student Guide AI.
@@ -79,7 +79,7 @@ student_learning_workflow = SequentialAgent(
 # Root Agent
 root_agent = Agent(
     name="student_guide_greeter",
-    model=GEMINI_MODEL,
+    model=OPENAI_MODEL,
     description="Main entry point for the Student Guide System.",
     instruction="""
     Your name is Elena, a friendly and supportive Student Guide AI.
